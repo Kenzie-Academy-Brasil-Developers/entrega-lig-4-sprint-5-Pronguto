@@ -1,5 +1,6 @@
 const mainGame = document.querySelector('.main-game')
 
+
 let map = [
     [0,0,0,0,0,0],
     [0,0,0,0,0,0],
@@ -9,6 +10,7 @@ let map = [
     [0,0,0,0,0,0]
 ]
 
+let contLine = 1
 const criandoTabuleiro = () => {
     for (let i = 0; i < map.length; i++) {
         let blocos = document.createElement('div')
@@ -18,7 +20,7 @@ const criandoTabuleiro = () => {
             let linhas = document.createElement('div')
             if (map[i][j] === 0) {
                 linhas.classList.add('linha')
-                linhas.setAttribute('id', `${j + 1}`)
+                linhas.setAttribute('id', `${contLine++}`)
                 blocos.appendChild(linhas)
             }
         }
@@ -37,12 +39,15 @@ function validaDisco (select, disco, count, i){
     count[i]++
 }
 
+let contId = 1
 const addDiscos = (evt) => {
+    
     let discColor = ['disco-azul', 'disco-red']
     let discSelected = evt.target
     let select = discSelected.closest(`div .blocos`)
     let disco = document.createElement('div')
     disco.classList.add(`${discColor[contColor]}`)
+    let divDisco = select.querySelector(`div:nth-child(${contId++})`)
 
     if (select.id === 'bloco-1' && count[0] < 7) {
         changePlayer(disco, discColor)
@@ -73,6 +78,11 @@ const addDiscos = (evt) => {
         validaDisco(select, disco, count, 6)
 
     }
+
+    if (contId > 6){
+        contId = 1
+    }
+    console.log(divDisco.id)
 }
 
 mainGame.addEventListener('click', addDiscos)
@@ -85,4 +95,6 @@ function changePlayer(disco, discColor) {
         disco.classList.add(`${discColor[1]}`)
         controlDiscs = true
     }
+    
 }
+

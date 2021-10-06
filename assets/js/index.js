@@ -13,6 +13,7 @@ let map = [
 
 let contLine = 1
 const criandoTabuleiro = () => {
+    
     for (let i = 0; i < map.length; i++) {
         let blocos = document.createElement('div')
         blocos.setAttribute('id', `bloco-${i + 1}`)
@@ -41,6 +42,8 @@ let controlDiscs = true
 let jogadaPlayerAzul = []
 let jogadaPlayerRed = []
 
+let jogadorSelecionou
+
 function validaDisco (select, disco, count, i){
     discSelect = select.querySelector(`div:nth-child(${count[i]})`)
     disco.setAttribute('id', `${discSelect.id}`)
@@ -48,13 +51,18 @@ function validaDisco (select, disco, count, i){
     count[i]++
     
     if (discSelect.firstElementChild.className === 'disco-azul'){
-        jogadaPlayerAzul.push(disco.id)
+        jogadaPlayerAzul.push(parseInt(disco.id))
+        jogadorSelecionou = jogadaPlayerAzul
+         
     }else{
-        jogadaPlayerRed.push(disco.id)
+        jogadaPlayerRed.push(parseInt(disco.id))
+        jogadorSelecionou = jogadaPlayerRed
     }
 
-    console.log(jogadaPlayerAzul)
-    console.log(jogadaPlayerRed)
+       
+    if (condicaoVitoria(jogadorSelecionou)){
+        alert(`jogador ${disco.className} ganhou`)        
+    }
 
 }
 
@@ -102,12 +110,29 @@ mainGame.addEventListener('click', addDiscos)
 
 function changePlayer(disco, discColor) {
     if (controlDiscs === true) {
+        jogadoresSelecionou = jogadaPlayerAzul
         disco.classList.add(`${discColor[0]}`)
         controlDiscs = false
     } else {
+        jogadoresSelecionou = jogadaPlayerAzul
         disco.classList.add(`${discColor[1]}`)
         controlDiscs = true
     }
-    disco.classList.add()
 }
 
+const condicaoVitoria = (jogadoresSelecionou) =>{
+    // console.log(jogadoresSelecionou)
+    for (let i = 0; i < combinacaoTabuleiro.length; i++){
+        combinacao = 0
+        for (let j = 0; j < combinacaoTabuleiro[i].length; j++){
+            if (jogadoresSelecionou.includes(combinacaoTabuleiro[i][j])){
+                combinacao++
+            }else break
+            if (combinacao === 4){
+                return true
+            }
+            
+        }
+    }
+    return false
+}

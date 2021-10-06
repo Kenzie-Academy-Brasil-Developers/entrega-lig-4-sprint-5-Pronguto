@@ -2,6 +2,7 @@ const mainGame = document.querySelector('.main-game')
 
 
 let map = [
+    [0,0,0,0,0,0],  
     [0,0,0,0,0,0],
     [0,0,0,0,0,0],
     [0,0,0,0,0,0],
@@ -22,6 +23,10 @@ const criandoTabuleiro = () => {
                 linhas.classList.add('linha')
                 linhas.setAttribute('id', `${contLine++}`)
                 blocos.appendChild(linhas)
+            } if (map[i][j] === 1) {
+                linhas.classList.add('linha')
+                linhas.setAttribute('id', `teste`)
+                blocos.appendChild(linhas)
             }
         }
         mainGame.appendChild(blocos)
@@ -33,11 +38,26 @@ let count = [1,1,1,1,1,1,1]
 let contColor = 0
 let controlDiscs = true
 
+let jogadaPlayerAzul = []
+let jogadaPlayerRed = []
+
 function validaDisco (select, disco, count, i){
     discSelect = select.querySelector(`div:nth-child(${count[i]})`)
+    disco.setAttribute('id', `${discSelect.id}`)
     discSelect.appendChild(disco)
     count[i]++
+    
+    if (discSelect.firstElementChild.className === 'disco-azul'){
+        jogadaPlayerAzul.push(disco.id)
+    }else{
+        jogadaPlayerRed.push(disco.id)
+    }
+
+    console.log(jogadaPlayerAzul)
+    console.log(jogadaPlayerRed)
+
 }
+
 
 let contId = 1
 const addDiscos = (evt) => {
@@ -46,8 +66,6 @@ const addDiscos = (evt) => {
     let discSelected = evt.target
     let select = discSelected.closest(`div .blocos`)
     let disco = document.createElement('div')
-    disco.classList.add(`${discColor[contColor]}`)
-    let divDisco = select.querySelector(`div:nth-child(${contId++})`)
 
     if (select.id === 'bloco-1' && count[0] < 7) {
         changePlayer(disco, discColor)
@@ -78,11 +96,6 @@ const addDiscos = (evt) => {
         validaDisco(select, disco, count, 6)
 
     }
-
-    if (contId > 6){
-        contId = 1
-    }
-    console.log(divDisco.id)
 }
 
 mainGame.addEventListener('click', addDiscos)
@@ -95,6 +108,6 @@ function changePlayer(disco, discColor) {
         disco.classList.add(`${discColor[1]}`)
         controlDiscs = true
     }
-    
+    disco.classList.add()
 }
 

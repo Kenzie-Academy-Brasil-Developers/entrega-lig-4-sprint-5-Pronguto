@@ -1,4 +1,6 @@
 const mainGame = document.querySelector('.main-game')
+const vitoriaBart = document.querySelector('div.vitoria-bart')
+const vitoriaLisa = document.querySelector('div.vitoria-lisa')
 
 let map = [
     [0, 0, 0, 0, 0, 0, 0],
@@ -52,6 +54,11 @@ const validaDisco = (select, disco, count, i) => {
     }
     if (condicaoVitoria(jogadorSelecionou)) {
         mensagemVitoria.classList.remove("mensagemVitoria")
+        if (disco.className === 'bart'){
+            vitoriaBart.style.display = 'flex'
+        }else{
+            vitoriaLisa.style.display = 'flex'
+        }
         setTimeout(() => {
             document.location.reload()
         }, 3000)
@@ -61,7 +68,7 @@ let contId = 1
 
 const addDiscos = (evt) => {
     if (condicaoVitoria(jogadorSelecionou)) {
-        console.log("JÁ TEMOS 1 VENCEDOR")
+        // console.log(`"JÁ TEMOS ${jogadorSelecionou.className} VENCEDOR"`)
     } else {
         let imgplayer = ['bart', 'lisa']
         let discSelected = evt.target

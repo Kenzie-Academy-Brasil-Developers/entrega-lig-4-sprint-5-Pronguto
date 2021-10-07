@@ -99,15 +99,105 @@ div.linha{
     height: 95px;
     border-radius: 50%;
     background-color: #88B5DE;
+    animation: animando-img 1s forwards;
+    position: relative;
 }
 
 .lisa{
+    position: relative;
     width: 100%;
     height: 95px;
     border-radius: 50%;
     background-color: #7E4A4A;
+    animation: animando-img 1s forwards;
 }
 
 .jogadores{
     width: 35px;
+}
+
+.vitoria-bart{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vitoria-bart h2{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.vitoria-bart img{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: tomato;
+    animation: animacao-bart 1s ;
+}
+
+.vitoria-lisa{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vitoria-lisa h2{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.vitoria-lisa img{
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: tomato;
+    animation: animacao-lisa 1s;
+}
+
+@keyframes animando-img{
+    from{
+        transform: translateY(-100px);
+    }
+
+    to{
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes animacao-bart {
+    from{
+        transform: translateX(-1000px);
+    }   
+
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animacao-lisa {
+    from{
+        transform: translateX(1000px);
+    }   
+
+    to{
+        transform: translateX(0px);
+    }
 }

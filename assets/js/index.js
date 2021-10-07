@@ -31,8 +31,8 @@ let count = [1, 1, 1, 1, 1, 1, 1]
 let contColor = 0
 let controlDiscs = true
 
-let jogadaPlayerAzul = []
-let jogadaPlayerRed = []
+let jogadaPlayer1 = []
+let jogadaPlayer2 = []
 
 let jogadorSelecionou = []
 
@@ -44,17 +44,17 @@ const validaDisco = (select, disco, count, i) => {
     discSelect.appendChild(disco)
     count[i]++
     if (discSelect.firstElementChild.className === 'bart') {
-        jogadaPlayerAzul.push(parseInt(disco.id))
-        jogadorSelecionou = jogadaPlayerAzul
+        jogadaPlayer1.push(parseInt(disco.id))
+        jogadorSelecionou = jogadaPlayer1
     } else {
-        jogadaPlayerRed.push(parseInt(disco.id))
-        jogadorSelecionou = jogadaPlayerRed
+        jogadaPlayer2.push(parseInt(disco.id))
+        jogadorSelecionou = jogadaPlayer2
     }
     if (condicaoVitoria(jogadorSelecionou)) {
         mensagemVitoria.classList.remove("mensagemVitoria")
-        setTimeout(() => {
-            document.location.reload()
-        }, 3000)
+        // setTimeout(() => {
+        //     document.location.reload()
+        // }, 3000)
     }
 }
 let contId = 1
@@ -99,7 +99,7 @@ const j2 = document.querySelector("#player2")
 j1.classList.add("borda")
 const changePlayer = (disco, imgplayer) => {
     if (controlDiscs === true) {
-        jogadoresSelecionou = jogadaPlayerAzul
+        jogadoresSelecionou = jogadaPlayer1
         j2.classList.add("borda")
         j1.classList.remove("borda")
         const p1 = document.createElement("img")
@@ -109,7 +109,7 @@ const changePlayer = (disco, imgplayer) => {
         disco.appendChild(p1)
         controlDiscs = false
     } else {
-        jogadoresSelecionou = jogadaPlayerAzul
+        jogadoresSelecionou = jogadaPlayer1
         j1.classList.add("borda")
         j2.classList.remove("borda")
         const p2 = document.createElement("img")
@@ -134,4 +134,7 @@ const condicaoVitoria = (jogadoresSelecionou) => {
         }
     }
     return false
+}
+const empate = () => {
+    return (jogadaPlayer1.length + jogadaPlayer2.length) >= combinacaoTabuleiro.length;
 }

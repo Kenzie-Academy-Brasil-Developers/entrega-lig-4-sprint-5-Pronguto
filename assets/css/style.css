@@ -1,52 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+body{
+    background-color: #97BFBF;
+}
 .container{
     width: 100%;
     max-width: 1200px;
     padding: 0 2%;
     margin: 0 auto;
 }
+#header{
+    width: 278px;
+    height: 100px;
+    background-color: #D4C6B9;
+    max-width: 1200px;
+    margin: 10px auto 0px;
+}
 
+#header>h1{
+    color: #000;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 36px;
+    line-height: 100px;
+    text-align: center;
+}
+.imgs{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+.player{
+    display: block;
+    height: 90px;
+    width: 105px;
+}
 
 /* ----- HEADER ----- */
 
-header{
-    background: linear-gradient(#90a4ae, #78909c);
-}
 
-header h1{
-    color: white;
-    padding: 40px 0;
-    text-align: center;
-    font-size: 30px;
-}
 
 /* ----- MAIN ----- */
 
+main h1 p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 23px;
+    font-family: 'Rubik Mono One';
+    /* display: none; */
+}
+
 .main-game{
+    width: 350px;
+    height: 365px;
+    /* margin-top: 100px; */
+    background-color: #595757;
     display: flex;
     flex-direction: row;
-    height: 100vh;
     align-items: center;
     justify-content: center;
 }
 
-div.blocos{
-    width: 100px;
-    height: 600px;
-    background-color: rgba(0, 0, 0);
+div.coluna{
+    width: 45px;
+    height: 345px;
+    background-color: #EBC8A8;
     border: 1px solid black;
     display: flex;
     flex-direction: column-reverse;
     cursor: pointer;
+    align-content: center;
+    justify-content: center;
 }
 
 div.linha{
-    width: 100%;
-    height: 100px;
+    width: 35px;
+    height: 35px;
     border-radius: 100%;
-    background-color: rgba(255, 255, 255, 1);
-    margin: 2px 0;
+    background-color: #afa9a9;
+    margin: 4px auto;
     display: flex;
-    justify-content: center;
     flex-direction: column-reverse;
     align-items: center;
 }
@@ -55,12 +87,12 @@ div.linha{
     width: 100%;
     height: 95px;
     border-radius: 50%;
-    background-color: cornflowerblue;
+    background-color: #88B5DE;
 }
 
 .disco-red{
     width: 100%;
     height: 95px;
     border-radius: 50%;
-    background-color: rgb(237, 100, 100);
+    background-color: #7E4A4A;
 }

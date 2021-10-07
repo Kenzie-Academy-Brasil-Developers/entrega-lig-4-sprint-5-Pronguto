@@ -45,6 +45,8 @@ const validaDisco = (select, disco, count, i) => {
     disco.setAttribute('id', `${discSelect.id}`)
     discSelect.appendChild(disco)
     count[i]++
+
+    console.log(disco)
     if (discSelect.firstElementChild.className === 'bart') {
         jogadaPlayer1.push(parseInt(disco.id))
         jogadorSelecionou = jogadaPlayer1
@@ -52,13 +54,21 @@ const validaDisco = (select, disco, count, i) => {
         jogadaPlayer2.push(parseInt(disco.id))
         jogadorSelecionou = jogadaPlayer2
     }
-    if (condicaoVitoria(jogadorSelecionou)) {
-        mensagemVitoria.classList.remove("mensagemVitoria")
+    if (condicaoVitoria()) {
+        
         if (disco.className === 'bart'){
             vitoriaBart.style.display = 'flex'
-        }else{
+            
+        }else if (disco.className === 'lisa'){
             vitoriaLisa.style.display = 'flex'
+
         }
+        setTimeout(() => {
+            document.location.reload()
+        }, 3000)
+    }
+    if(empate()){
+        mensagemVitoria.classList.remove('mensagemVitoria')
         setTimeout(() => {
             document.location.reload()
         }, 3000)
@@ -128,11 +138,11 @@ const changePlayer = (disco, imgplayer) => {
     }
 }
 
-const condicaoVitoria = (jogadoresSelecionou) => {
+const condicaoVitoria = () => {
     for (let i = 0; i < combinacaoTabuleiro.length; i++) {
         combinacao = 0
         for (let j = 0; j < combinacaoTabuleiro[i].length; j++) {
-            if (jogadoresSelecionou.includes(combinacaoTabuleiro[i][j])) {
+            if (jogadorSelecionou.includes(combinacaoTabuleiro[i][j])) {
                 combinacao++
             } else break
             if (combinacao === 4) {
@@ -143,5 +153,7 @@ const condicaoVitoria = (jogadoresSelecionou) => {
     return false
 }
 const empate = () => {
-    return (jogadaPlayer1.length + jogadaPlayer2.length) >= combinacaoTabuleiro.length;
+    if ((jogadaPlayer1.length + jogadaPlayer2.length) == 42){
+        return true
+    }
 }

@@ -66,6 +66,7 @@ main h1 p{
     height: 380px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .main-game{
     width: 350px;
@@ -139,16 +140,15 @@ div.linha{
 .vitoria-bart h2{
     color: white;
     font-size: 20px;
-    text-align: center;
     margin-bottom: 20px;
 }
 
 .vitoria-bart img{
     width: 300px;
-    height: 300px;
+    min-height: 300px;
     display: flex;
     justify-content: center;
-    background-color: tomato;
+    background-color: rgba(151, 191, 191, 0.8);
     animation: animacao-bart 1s ;
 }
 
@@ -167,15 +167,15 @@ div.linha{
 .vitoria-lisa h2{
     color: white;
     font-size: 20px;
-    text-align: center;
     margin-bottom: 20px;
 }
 .vitoria-lisa img{
     width: 300px;
-    height: 300px;
+    min-height: 200px;
     display: flex;
+    flex-direction: row;
     justify-content: center;
-    background-color: tomato;
+    background-color: rgba(243, 163, 171, 0.8);
     animation: animacao-lisa 1s;
 }
 

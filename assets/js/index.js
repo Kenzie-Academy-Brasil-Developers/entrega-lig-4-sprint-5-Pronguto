@@ -49,8 +49,8 @@ const validaDisco = (select, disco, count, i) => {
         jogadorSelecionou = jogadaPlayerRed
     }
     if (condicaoVitoria(jogadorSelecionou)) {
-        
-        setTimeout(()=>{
+
+        setTimeout(() => {
             document.location.reload()
         }, 3000)
     }
@@ -89,14 +89,29 @@ const addDiscos = (evt) => {
 
 mainGame.addEventListener('click', addDiscos)
 
+const j1 = document.querySelector("#player1")
+const j2 = document.querySelector("#player2")
+j1.classList.add("borda")
 const changePlayer = (disco, discColor) => {
     if (controlDiscs === true) {
         jogadoresSelecionou = jogadaPlayerAzul
+        j2.classList.add("borda")
+        j1.classList.remove("borda")
+        const p1 = document.createElement("img")
+        p1.src = "./assets/imgs/player1.png"
+        p1.classList.add("jogadores")
         disco.classList.add(`${discColor[0]}`)
+        disco.appendChild(p1)
         controlDiscs = false
     } else {
         jogadoresSelecionou = jogadaPlayerAzul
+        j1.classList.add("borda")
+        j2.classList.remove("borda")
+        const p2 = document.createElement("img")
+        p2.src = "./assets/imgs/player2.png"
+        p2.classList.add("jogadores")
         disco.classList.add(`${discColor[1]}`)
+        disco.appendChild(p2)
         controlDiscs = true
     }
 }

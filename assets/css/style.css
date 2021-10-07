@@ -179,6 +179,72 @@ div.linha{
     animation: animacao-lisa 1s;
 }
 
+@media screen and (min-width:700px) {
+    #header{
+        height: 110px;
+    }
+    #header>h1{
+        font-size: 46px;
+        line-height: 120px;
+    }
+    .imgs {
+        margin: 10px auto;
+        width: 570px;
+    }
+    .player{
+        height: 100px;
+        width: 115px;
+    }
+    main h1 p{
+        font-size: 30px;
+    }
+    .container{
+        background-size: 820px;
+        height: 540px;
+    }
+    .main-game{
+        width: 610px;
+        height: 465px;
+    }
+    div.coluna{
+        width: 75px;
+        height: 425px;
+    }
+    div.linha{
+        width: 65px;
+        height: 65px;
+    }
+    .jogadores{
+        width: 65px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    #header{
+        height: 150px;
+    }
+    #header>h1{
+        font-size: 56px;
+        line-height: 150px;
+    }
+    .imgs{
+        width: 580px;
+    }
+    .player{
+        height: 110px;
+        width: 135px;
+    }
+    main h1 p{
+        font-size: 38px;
+        line-height: 63px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .container {
+        background-size: 880px;
+        height: 580px;
+    }
+}
 @keyframes animando-img{
     from{
         transform: translateY(-100px);

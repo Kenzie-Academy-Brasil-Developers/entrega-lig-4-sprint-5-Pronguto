@@ -1,20 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
 
 body{
-    background-color: #97BFBF;
+    background-color: #f3a3ab;
 }
-.container{
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 2%;
-    margin: 0 auto;
-}
+
 #header{
-    width: 278px;
     height: 100px;
-    background-color: #D4C6B9;
-    max-width: 1200px;
-    margin: 10px auto 0px;
+    background: 
+        linear-gradient(180deg, rgba(151,191,191,1) 13%,
+        rgba(159,189,189,1) 42%,
+        rgba(201,176,180,1) 68%,
+        rgba(243,163,171,1) 100%);
 }
 
 #header>h1{
@@ -43,6 +39,7 @@ body{
 
 
 /* ----- MAIN ----- */
+
 #vitoria{
     display: block;
     height: 50px;
@@ -59,23 +56,29 @@ main h1 p{
     font-family: 'Rubik Mono One';
     /* display: none; */
 }
-
+.container{
+    background-image: url("../imgs/familia.png");
+    width: 100%;
+    background-position: center;
+    margin: 0 auto;
+    background-size: 590px;
+    background-repeat: no-repeat;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+}
 .main-game{
     width: 350px;
     height: 365px;
-    /* margin-top: 100px; */
-    background-color: #595757;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 div.coluna{
     width: 45px;
     height: 345px;
-    background-color: #EBC8A8;
-    border: 1px solid black;
     display: flex;
     flex-direction: column-reverse;
     cursor: pointer;
@@ -84,14 +87,13 @@ div.coluna{
 }
 
 div.linha{
-    width: 35px;
-    height: 35px;
-    border-radius: 100%;
-    background-color: #afa9a9;
-    margin: 4px auto;
+    width: 45px;
+    height: 45px;
+    margin: 2px auto;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    border: 1px solid;
 }
 
 .bart{
@@ -101,6 +103,9 @@ div.linha{
     background-color: #88B5DE;
     animation: animando-img 1s forwards;
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .lisa{

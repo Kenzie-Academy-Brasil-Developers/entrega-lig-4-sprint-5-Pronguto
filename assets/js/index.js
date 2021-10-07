@@ -34,14 +34,16 @@ let controlDiscs = true
 let jogadaPlayerAzul = []
 let jogadaPlayerRed = []
 
-let jogadorSelecionou
+let jogadorSelecionou = []
+
+const mensagemVitoria = document.querySelector("#vitoria>.mensagemVitoria")
 
 const validaDisco = (select, disco, count, i) => {
     discSelect = select.querySelector(`div:nth-child(${count[i]})`)
     disco.setAttribute('id', `${discSelect.id}`)
     discSelect.appendChild(disco)
     count[i]++
-    if (discSelect.firstElementChild.className === 'disco-azul') {
+    if (discSelect.firstElementChild.className === 'bart') {
         jogadaPlayerAzul.push(parseInt(disco.id))
         jogadorSelecionou = jogadaPlayerAzul
     } else {
@@ -49,41 +51,44 @@ const validaDisco = (select, disco, count, i) => {
         jogadorSelecionou = jogadaPlayerRed
     }
     if (condicaoVitoria(jogadorSelecionou)) {
-
+        mensagemVitoria.classList.remove("mensagemVitoria")
         setTimeout(() => {
             document.location.reload()
         }, 3000)
     }
 }
-
 let contId = 1
 
 const addDiscos = (evt) => {
-    let discColor = ['disco-azul', 'disco-red']
-    let discSelected = evt.target
-    let select = discSelected.closest(`div .coluna`)
-    let disco = document.createElement('div')
-    if (select.id === '1' && count[0] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 0)
-    } else if (select.id === '2' && count[1] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 1)
-    } else if (select.id === '3' && count[2] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 2)
-    } else if (select.id === '4' && count[3] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 3)
-    } else if (select.id === '5' && count[4] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 4)
-    } else if (select.id === '6' && count[5] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 5)
-    } else if (select.id === '7' && count[6] < 7) {
-        changePlayer(disco, discColor)
-        validaDisco(select, disco, count, 6)
+    if (condicaoVitoria(jogadorSelecionou)) {
+        console.log("JÁ TEMOS 1 VENCEDOR")
+    } else {
+        let imgplayer = ['bart', 'lisa']
+        let discSelected = evt.target
+        let select = discSelected.closest(`div .coluna`)
+        let disco = document.createElement('div')
+        if (select.id === '1' && count[0] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 0)
+        } else if (select.id === '2' && count[1] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 1)
+        } else if (select.id === '3' && count[2] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 2)
+        } else if (select.id === '4' && count[3] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 3)
+        } else if (select.id === '5' && count[4] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 4)
+        } else if (select.id === '6' && count[5] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 5)
+        } else if (select.id === '7' && count[6] < 7) {
+            changePlayer(disco, imgplayer)
+            validaDisco(select, disco, count, 6)
+        }
     }
 }
 
@@ -92,7 +97,7 @@ mainGame.addEventListener('click', addDiscos)
 const j1 = document.querySelector("#player1")
 const j2 = document.querySelector("#player2")
 j1.classList.add("borda")
-const changePlayer = (disco, discColor) => {
+const changePlayer = (disco, imgplayer) => {
     if (controlDiscs === true) {
         jogadoresSelecionou = jogadaPlayerAzul
         j2.classList.add("borda")
@@ -100,7 +105,7 @@ const changePlayer = (disco, discColor) => {
         const p1 = document.createElement("img")
         p1.src = "./assets/imgs/player1.png"
         p1.classList.add("jogadores")
-        disco.classList.add(`${discColor[0]}`)
+        disco.classList.add(`${imgplayer[0]}`)
         disco.appendChild(p1)
         controlDiscs = false
     } else {
@@ -110,7 +115,7 @@ const changePlayer = (disco, discColor) => {
         const p2 = document.createElement("img")
         p2.src = "./assets/imgs/player2.png"
         p2.classList.add("jogadores")
-        disco.classList.add(`${discColor[1]}`)
+        disco.classList.add(`${imgplayer[1]}`)
         disco.appendChild(p2)
         controlDiscs = true
     }

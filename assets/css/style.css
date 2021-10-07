@@ -43,6 +43,14 @@ body{
 
 
 /* ----- MAIN ----- */
+#vitoria{
+    display: block;
+    height: 50px;
+}
+
+.mensagemVitoria{
+    display: none;
+}
 
 main h1 p{
     text-align: center;
@@ -86,14 +94,14 @@ div.linha{
     align-items: center;
 }
 
-.disco-azul{
+.bart{
     width: 100%;
     height: 95px;
     border-radius: 50%;
     background-color: #88B5DE;
 }
 
-.disco-red{
+.lisa{
     width: 100%;
     height: 95px;
     border-radius: 50%;

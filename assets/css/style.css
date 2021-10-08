@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+body{
+    background-color: #f3a3ab;
+}
+
+#header{
+    height: 100px;
+    background: 
+        linear-gradient(180deg, rgba(151,191,191,1) 13%,
+        rgba(159,189,189,1) 42%,
+        rgba(201,176,180,1) 68%,
+        rgba(243,163,171,1) 100%);
+}
+
+#header>h1{
+    color: #000;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 36px;
+    line-height: 100px;
+    text-align: center;
+}
+.imgs{
+    display: flex;
+    margin: 10px;
+    justify-content: space-between;
+}
+.player{
+    display: block;
+    height: 90px;
+    width: 105px;
+}
+.borda{
+    border: 1px solid #595757;
+}
+
+/* ----- HEADER ----- */
+
+
+
+/* ----- MAIN ----- */
+
+#vitoria{
+    display: block;
+    height: 50px;
+}
+
+.mensagemVitoria{
+    display: none;
+}
+
+main h1 p{
+    text-align: center;
+    font-size: 18px;
+    line-height: 23px;
+    font-family: 'Rubik Mono One';
+    /* display: none; */
+}
+.container{
+    background-image: url("../imgs/familia.png");
+    width: 100%;
+    background-position: center;
+    margin: 0 auto;
+    background-size: 590px;
+    background-repeat: no-repeat;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.main-game{
+    width: 350px;
+    height: 365px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+div.coluna{
+    width: 45px;
+    height: 345px;
+    display: flex;
+    flex-direction: column-reverse;
+    cursor: pointer;
+    align-content: center;
+    justify-content: center;
+}
+
+div.linha{
+    width: 45px;
+    height: 45px;
+    margin: 2px auto;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    border: 1px solid;
+}
+
+.bart{
+    width: 100%;
+    height: 95px;
+    border-radius: 50%;
+    background-color: #88B5DE;
+    animation: animando-img 1s forwards;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lisa{
+    position: relative;
+    width: 100%;
+    height: 95px;
+    border-radius: 50%;
+    background-color: #7E4A4A;
+    animation: animando-img 1s forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.jogadores{
+    width: 35px;
+}
+
+.vitoria-bart{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vitoria-bart h2{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.vitoria-bart img{
+    width: 300px;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(151, 191, 191, 0.8);
+    animation: animacao-bart 1s ;
+}
+
+.vitoria-lisa{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.vitoria-lisa h2{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.vitoria-lisa img{
+    width: 300px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: rgba(243, 163, 171, 0.8);
+    animation: animacao-lisa 1s;
+}
+
+@media screen and (min-width:700px) {
+    #header{
+        height: 110px;
+    }
+    #header>h1{
+        font-size: 46px;
+        line-height: 120px;
+    }
+    .imgs {
+        margin: 10px auto;
+        width: 570px;
+    }
+    .player{
+        height: 100px;
+        width: 115px;
+    }
+    main h1 p{
+        font-size: 30px;
+    }
+    .container{
+        background-size: 820px;
+        height: 540px;
+    }
+    .main-game{
+        width: 610px;
+        height: 465px;
+    }
+    div.coluna{
+        width: 75px;
+        height: 425px;
+    }
+    div.linha{
+        width: 65px;
+        height: 65px;
+    }
+    .jogadores{
+        width: 65px;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    #header{
+        height: 150px;
+    }
+    #header>h1{
+        font-size: 56px;
+        line-height: 150px;
+    }
+    .imgs{
+        width: 580px;
+    }
+    .player{
+        height: 110px;
+        width: 135px;
+    }
+    main h1 p{
+        font-size: 38px;
+        line-height: 63px;
+    }
+}
+@media screen and (min-width: 1400px) {
+    .container {
+        background-size: 880px;
+        height: 580px;
+    }
+}
+@keyframes animando-img{
+    from{
+        transform: translateY(-100px);
+    }
+
+    to{
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes animacao-bart {
+    from{
+        transform: translateX(-1000px);
+    }   
+
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animacao-lisa {
+    from{
+        transform: translateX(1000px);
+    }   
+
+    to{
+        transform: translateX(0px);
+    }
+}
